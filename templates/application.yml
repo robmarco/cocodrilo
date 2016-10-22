@@ -1,0 +1,33 @@
+# Logs
+LOG_LEVEL: "debug"
+
+# Secret
+SECRET_KEY_BASE: your-secret-key-token
+
+# Puma
+WEB_CONCURRENCY: "2"
+MAX_THREADS: "2"
+DB_REAPING_FREQUENCY: "10"
+
+# AWS (Amazon S3)
+S3_BUCKET_NAME: "your-bucket-name"
+S3_FILE_SECRET: "generate-hash-file-secret"
+AWS_ACCESS_KEY_ID: "aws-secret-key-id"
+AWS_SECRET_ACCESS_KEY: "aws-secret-access-key"
+AWS_REGION: "eu-west-1"
+
+# Redis
+REDIS_URL: "redis://127.0.0.1:6379"
+REDIS_PASSWORD: ""
+
+production:
+  LOG_LEVEL: "info"
+
+  # Redis
+  REDIS_URL: "redis://127.0.0.1:6379"
+  REDIS_PASSWORD: "your-redis-password"
+
+  # Database
+  # DATABASE_USERNAME: "your-database-username"
+  # DATABASE_PASSWORD: "your-database-password"
+  # DATABASE_URL: "your-database-url"

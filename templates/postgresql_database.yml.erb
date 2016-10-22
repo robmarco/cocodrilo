@@ -1,0 +1,26 @@
+# Postgresql default configuration
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  min_messages: warning
+  pool: <%= ENV.fetch("MAX_THREADS") { 5 } %>
+  reaping_frequency: <%= Integer(ENV.fetch("DB_REAPING_FREQUENCY", 10)) %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: <%= app_name %>_development
+
+test:
+  <<: *default
+  database: <%= app_name %>_test
+
+production:
+  <<: *default
+  encoding: utf8
+  database: <%= app_name %>_production
+  # RDS configuration
+  # url: <%= ENV['DATABASE_URL'] %>
+  # Local PSQL configuration
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>

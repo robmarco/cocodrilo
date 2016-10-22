@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+require 'pathname'
+
+source_path = (Pathname.new(__FILE__).dirname + '../lib').expand_path
+$LOAD_PATH << source_path
+
+require 'cocodrilo/version'
+
+if Cocodrilo::RUBY_VERSION != ::RUBY_VERSION
+  abort "ERROR: You must use this tool with Ruby version #{Cocodrilo::RUBY_VERSION}"
+end
+
+require 'cocodrilo'
+
+if ['-v', '--version'].include? ARGV[0]
+  puts Cocodrilo::VERSION
+  exit 0
+end
+
+templates_root = File.expand_path(File.join("..", "templates"), File.dirname(__FILE__))
+Cocodrilo::AppGenerator.source_root templates_root
+Cocodrilo::AppGenerator.source_paths << Rails::Generators::AppGenerator.source_root << templates_root
+
+Cocodrilo::AppGenerator.start

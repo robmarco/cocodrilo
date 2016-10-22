@@ -52,9 +52,9 @@ module Cocodrilo
       build :setup_time_zone
       build :setup_locale_configuration
       build :setup_autoload_paths
-      build :setup_lograge
-      build :setup_rack_cors
-      build :setup_generators
+      # build :setup_lograge
+      # build :setup_rack_cors
+      # build :setup_generators
     end
 
     def setup_development_environment

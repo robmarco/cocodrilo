@@ -140,7 +140,7 @@ module Cocodrilo
     protected
 
     def get_builder_class
-      Crocode::AppBuilder
+      Cocodrilo::AppBuilder
     end
 
     def using_active_record?
